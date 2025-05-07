@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Layout.scss';
+import './layout.scss';
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
