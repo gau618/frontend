@@ -1,7 +1,8 @@
 import React from 'react';
 import './home.scss';
-
+import { useNavigate } from 'react-router-dom';
 export default function Home() {
+    const navigate = useNavigate();
   return (
     <div className="home">
       {/* Hero Section */}
@@ -20,7 +21,7 @@ export default function Home() {
           <div className="card">
             <h3>Dashboard</h3>
             <p>Track everything in one place with real-time updates.</p>
-            <button>Call</button>
+            <button onClick={()=>{navigate('/interview')}}>Call</button>
           </div>
           <div className="card">
             <h3>Analytics</h3>
