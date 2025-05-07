@@ -1,5 +1,5 @@
 import React from 'react';
-import './Interview.scss';
+import './interview.scss';
 
 export default function Interview() {
     const generateQuestions = async() => {
