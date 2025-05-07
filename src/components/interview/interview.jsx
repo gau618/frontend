@@ -3,6 +3,7 @@ import './interview.scss';
 
 export default function Interview() {
     const generateQuestions = async() => {
+      console.log("Generating Questions...");
      try{
         const response = await fetch('https://backend-fas4.onrender.com/api/v1/vapi/gemini', {
             method: 'POST',
