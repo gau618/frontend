@@ -1,133 +1,194 @@
-.interview-container {
-    background-color: #0f1117;
-    color: #ffffff;
-    font-family: 'Segoe UI', sans-serif;
-    padding: 2rem;
-    min-height: 100vh;
+.call-view {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+  }
   
-    .interview-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+  .card-interviewer,
+  .card-border {
+    background-color: #f8f8f8;
+    padding: 1rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
   
-      .logo {
-        font-size: 1.5rem;
-        font-weight: bold;
-      }
+  .avatar {
+    position: relative;
+    display: inline-block;
+  }
   
-      .user-avatar img {
-        border-radius: 50%;
-        width: 40px;
+  .img-avatar {
+    object-fit: cover;
+    border-radius: 8px;
+  }
+  
+  .img-user {
+    object-fit: cover;
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+  }
+  
+  .animate-speak {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    width: 12px;
+    height: 12px;
+    background: green;
+    border-radius: 50%;
+    animation: pulse 1s infinite;
+  }
+  
+  @keyframes pulse {
+    0% {
+      transform: scale(0.9);
+      opacity: 0.7;
+    }
+    100% {
+      transform: scale(1.3);
+      opacity: 0;
+    }
+  }
+  
+  .transcript-border {
+    max-width: 600px;
+    margin: 1rem auto;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+  }
+  
+  .transcript {
+    text-align: center;
+  }
+  
+  .fade-in {
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .call-controls {
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+  }
+  
+  .btn-call,
+  .btn-disconnect {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
+    border: none;
+    border-radius: 999px;
+    cursor: pointer;
+    position: relative;
+    color: white;
+  }
+  
+  .btn-call {
+    background-color: #4caf50;
+  }
+  
+  .btn-disconnect {
+    background-color: #e53935;
+  }
+  
+  .ping-indicator {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border: 2px solid white;
+    border-radius: 999px;
+    animation: ping 1s infinite;
+    top: 0;
+    left: 0;
+  }
+  
+  @keyframes ping {
+    0% {
+      transform: scale(1);
+      opacity: 1;
+    }
+    75% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+    100% {
+      transform: scale(1.4);
+      opacity: 0;
+    }
+  }
+  
+  .btn-text {
+    position: relative;
+    z-index: 1;
+  }
+  .interview-card {
+    background-color: #fdfdfd;
+    border: 1px solid #ccc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin: 1rem;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: box-shadow 0.3s ease;
+  
+    &:hover {
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.15);
+    }
+    button{
+      background-color: #007acc;
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      margin-top: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s ease;
+  
+      &:hover {
+        background-color: #005fa3;
       }
     }
   
-    .interview-title {
-      margin: 2rem 0 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-  
-      h3 {
-        font-size: 1.25rem;
-        color: #cbd5e1;
-      }
-  
-      .badge {
-        background-color: #1e293b;
-        padding: 0.3rem 0.8rem;
-        border-radius: 1rem;
-        font-size: 0.85rem;
-        color: #93c5fd;
-      }
+    .role {
+      font-size: 1.4rem;
+      color: #2d3748;
+      margin-bottom: 0.5rem;
     }
   
-    .interview-panels {
-      display: flex;
-      gap: 2rem;
-      justify-content: center;
-      margin: 2rem 0;
-  
-      .panel {
-        background: #1a1d24;
-        border: 1px solid #2c2f36;
-        padding: 2rem;
-        border-radius: 1rem;
-        text-align: center;
-        width: 220px;
-  
-        .avatar-circle {
-          width: 80px;
-          height: 80px;
-          margin: 0 auto 1rem;
-          border-radius: 50%;
-          background: #2d3748;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          font-size: 2rem;
-          overflow: hidden;
-  
-          img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-          }
-        }
-  
-        h4 {
-          margin-top: 0.5rem;
-          color: #e2e8f0;
-        }
-      }
+    p {
+      font-size: 0.95rem;
+      margin: 0.3rem 0;
+      color: #333;
     }
   
-    .input-section {
-      text-align: center;
-      margin-top: 2rem;
+    summary {
+      cursor: pointer;
+      color: #007acc;
+      font-weight: bold;
+      margin-top: 0.8rem;
+    }
   
-      p {
-        font-size: 1.1rem;
+    ul {
+      margin-top: 0.5rem;
+      padding-left: 1.2rem;
   
-        .highlight {
-          background-color: #1e293b;
-          padding: 0.2rem 0.5rem;
-          border-radius: 0.3rem;
-          color: #60a5fa;
-        }
-      }
-  
-      .button-group {
-        margin-top: 1rem;
-        display: flex;
-        justify-content: center;
-        gap: 1rem;
-  
-        button {
-          padding: 0.6rem 1.5rem;
-          border-radius: 0.5rem;
-          font-weight: bold;
-          border: none;
-          cursor: pointer;
-          transition: 0.2s;
-  
-          &.repeat {
-            background-color: #1f2937;
-            color: #facc15;
-  
-            &:hover {
-              background-color: #374151;
-            }
-          }
-  
-          &.leave {
-            background-color: #dc2626;
-            color: white;
-  
-            &:hover {
-              background-color: #b91c1c;
-            }
-          }
-        }
+      li {
+        font-size: 0.9rem;
+        color: #555;
+        margin-bottom: 0.4rem;
       }
     }
   }

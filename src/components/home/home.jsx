@@ -1,6 +1,7 @@
 import React from 'react';
 import './home.scss';
 import { useNavigate } from 'react-router-dom';
+import { InterviewList } from '../interview/interviewList';
 export default function Home() {
     const navigate = useNavigate();
   return (
@@ -40,6 +41,7 @@ export default function Home() {
           </div>
         </div>
       </section>
+      <InterviewList/>
     </div>
   );
 }
