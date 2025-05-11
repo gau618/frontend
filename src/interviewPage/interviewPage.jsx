@@ -10,7 +10,7 @@ export default function InterviewPage() {
 
         const fetchInterview = async () => {
             try {
-                const response = await fetch(`http://localhost:8000/api/v1/vapi/interview-list`);
+                const response = await fetch(`https://backend-fas4.onrender.com/api/v1/vapi/interview-list`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
                 }
