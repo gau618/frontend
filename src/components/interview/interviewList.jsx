@@ -23,6 +23,7 @@ export const InterviewList = () => {
           }
         } catch (error) {
           setError('Failed to fetch data');
+          console.error('Error:', error);
         } finally {
           setLoading(false);
         }
