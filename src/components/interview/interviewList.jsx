@@ -13,7 +13,7 @@ export const InterviewList = () => {
         setError(null);
     
         try {
-          const response = await fetch('http://localhost:8000/api/v1/vapi/interview-list')
+          const response = await fetch('https://backend-fas4.onrender.com/api/v1/vapi/interview-list')
           const result = await response.json();
     
           if (response.ok) {
