@@ -15,7 +15,7 @@ export const InterviewList = () => {
         try {
           const response = await fetch('https://backend-fas4.onrender.com/api/v1/vapi/interview-list')
           const result = await response.json();
-    
+          console.log('result', result)
           if (response.ok) {
             setInerview(result.data);
           } else {
