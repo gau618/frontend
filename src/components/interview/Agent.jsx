@@ -19,7 +19,8 @@ export default function Agent({ username, userId, type, questions, interviewId }
     };
 
     const onCallEnd = () => {
-      setCallStatus('INACTIVE');
+      console.log('Call ended');
+      setCallStatus('FINISHED');
     };
 
     const onMessage = (message) => {
@@ -39,7 +40,7 @@ export default function Agent({ username, userId, type, questions, interviewId }
 
     const onError = (error) => {
       console.error('Error:', error);
-      setCallStatus('INACTIVE'); // fallback on error
+
     };
 
     vapi.on('call-start', onCallStart);
@@ -75,13 +76,16 @@ export default function Agent({ username, userId, type, questions, interviewId }
   };
 
   useEffect(() => {
+    
     if (callStatus === 'FINISHED') {
+   
       if (type === 'generation') {
         navigate('/');
-      }
-    } else if (messages.length > 0) {
+      }else if (messages.length > 0) {
+        console.log('Call finished');
       handleGenerateFeedback(messages);
     }
+    } 
   }, [messages, callStatus, type, userId]);
 
   const lastMessage = messages[messages.length - 1]?.content;
@@ -126,7 +130,6 @@ export default function Agent({ username, userId, type, questions, interviewId }
       console.error('Error disconnecting call:', error);
     }
   };
-
   return (
     <>
       <div className="call-view">
@@ -164,7 +167,9 @@ export default function Agent({ username, userId, type, questions, interviewId }
         <div className="transcript-border">
           <div className="transcript">
             <p className="fade-in">{lastMessage}</p>
+        
           </div>
+          <p style={{color:"white"}}>{callStatus}</p>
         </div>
       )}
 
