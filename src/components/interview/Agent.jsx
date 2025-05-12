@@ -62,18 +62,35 @@ export default function Agent({ username, userId, type, questions, interviewId }
 
   const handleGenerateFeedback = async (message) => {
     console.log('Generate feedback:');
-    const { success, id } = {
-      success: true,
-      id: 'feedback-id',
-    };
-    if (success) {
-      console.log('Feedback generated successfully:', id);
-      setCallStatus('FINISHED');
-    } else {
-      console.error('Error generating feedback');
+    try {
+      const res = await fetch("https://backend-fas4.onrender.com/api/v1/vapi/createFeedback", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          interviewId: interviewId,
+          userId: userId,
+          transcript: message,
+        }),
+      });
+  
+      const data = await res.json(); // Parse the response
+  
+      if (res.ok && data.success) {
+        console.log('Feedback generated successfully:', data.id);
+        setCallStatus('FINISHED');
+        navigate(`/interview/${data.id}/feedback`);
+      } else {
+        console.error('Error generating feedback:', data.message || 'Unknown error');
+        navigate('/');
+      }
+    } catch (error) {
+      console.error('Error generating feedback:', error);
       navigate('/');
     }
   };
+  
 
   useEffect(() => {
     

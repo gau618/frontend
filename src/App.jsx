@@ -6,6 +6,7 @@ import Home from './components/home/home'
 import Interview from './components/interview/interview'
 import ApiButton from './components/test'
 import InterviewPage from './interviewPage/interviewPage'
+import Feedback from './components/interview/feedback'
 function App() {
 
   return (
@@ -18,6 +19,7 @@ function App() {
           <Route path="/interview" element={<Interview />} />
           <Route path="/test" element={<ApiButton />} />
           <Route path="/interviewPage/:id" element={<InterviewPage />} />
+          <Route path="/interview/:id/feedback" element={<Feedback />} />
         </Routes>
       </BrowserRouter>
     </>

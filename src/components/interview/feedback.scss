@@ -1,0 +1,134 @@
+.section-feedback {
+    padding: 2rem;
+    max-width: 900px;
+    margin: 2rem auto;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  
+    .header-row {
+      text-align: center;
+      margin-bottom: 1.5rem;
+  
+      h1 {
+        font-size: 2rem;
+        font-weight: 600;
+  
+        .role {
+          color: #5c67f2;
+          text-transform: capitalize;
+        }
+      }
+    }
+  
+    .meta-row {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+  
+      .meta-item {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+  
+        p {
+          font-size: 1rem;
+  
+          .highlight {
+            font-weight: 700;
+            color: #5c67f2;
+          }
+        }
+      }
+    }
+  
+    hr {
+      margin: 1.5rem 0;
+      border: none;
+      border-top: 1px solid #e0e0e0;
+    }
+  
+    .final-assessment {
+      margin-bottom: 2rem;
+      font-size: 1rem;
+      color: #333;
+    }
+  
+    .breakdown {
+      margin-bottom: 2rem;
+  
+      h2 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+  
+      .category-score {
+        margin-bottom: 1rem;
+  
+        .category-title {
+          font-weight: 600;
+          margin-bottom: 0.3rem;
+        }
+  
+        .category-comment {
+          margin-left: 1rem;
+          color: #666;
+        }
+      }
+    }
+  
+    .feedback-list {
+      margin-bottom: 2rem;
+  
+      h3 {
+        font-size: 1.15rem;
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+      }
+  
+      ul {
+        padding-left: 1.5rem;
+  
+        li {
+          list-style-type: disc;
+          margin-bottom: 0.3rem;
+        }
+      }
+    }
+  
+    .buttons {
+      display: flex;
+      gap: 1rem;
+  
+      button {
+        flex: 1;
+        padding: 0.75rem 1rem;
+        border: none;
+        border-radius: 8px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        cursor: pointer;
+  
+        &.btn-primary {
+          background-color: #5c67f2;
+          color: #ffffff;
+        }
+  
+        &.btn-secondary {
+          background-color: #e0e0e0;
+          color: #5c67f2;
+        }
+  
+        .btn-link {
+          text-decoration: none;
+          display: inline-block;
+          width: 100%;
+          text-align: center;
+          color: inherit;
+        }
+      }
+    }
+  }
+  
