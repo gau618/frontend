@@ -1,4 +1,12 @@
-import Vapi from '@vapi-ai/web'
-const apiKey = import.meta.env.NEXT_PUBLIC_VAPI_WEB_TOKEN;
+import Vapi from "@vapi-ai/web";
 
-export const vapi = new Vapi('4ae5b494-0f2f-447a-a5a2-30061715e87d')
+// Vite exposes variables prefixed with VITE_
+export const VAPI_WEB_TOKEN = import.meta.env.VITE_VAPI_WEB_TOKEN;
+
+if (!VAPI_WEB_TOKEN) {
+  console.warn(
+    "VITE_VAPI_WEB_TOKEN is not set. Please add it to frontend/.env and restart the dev server."
+  );
+}
+
+export const vapi = new Vapi(VAPI_WEB_TOKEN);

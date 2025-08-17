@@ -1,5 +1,3 @@
-import { CreateAssistantDTO } from "@vapi-ai/web/dist/api";
-
 //import { z } from "zod"; // still imported for validation schema below
 
 export const mappings = {
@@ -95,7 +93,7 @@ export const mappings = {
   contentful: "contentful",
   netlify: "netlify",
   vercel: "vercel",
-  "aws amplify": "amplify"
+  "aws amplify": "amplify",
 };
 
 export const interviewer = {
@@ -105,7 +103,7 @@ export const interviewer = {
   transcriber: {
     provider: "deepgram",
     model: "nova-2",
-    language: "en"
+    language: "en",
   },
   voice: {
     provider: "11labs",
@@ -114,7 +112,7 @@ export const interviewer = {
     similarityBoost: 0.8,
     speed: 0.9,
     style: 0.5,
-    useSpeakerBoost: true
+    useSpeakerBoost: true,
   },
   model: {
     provider: "openai",
@@ -122,7 +120,12 @@ export const interviewer = {
     messages: [
       {
         role: "system",
-        content: `You are a professional job interviewer conducting a real-time voice interview with a candidate. Your goal is to assess their qualifications, motivation, and fit for the role.
+        content: `You are a professional job interviewer conducting a real-time voice interview with a candidate for the role "{{role}}" (Level: {{level}}) at "{{company}}".
+
+Job description/context (for tailoring follow-ups):
+{{jobDescription}}
+
+Your goal is to assess their qualifications, motivation, and fit for the role.
 
 Interview Guidelines:
 Follow the structured question flow:
@@ -149,10 +152,10 @@ End the conversation on a polite and positive note.
 
 - Be sure to be professional and polite.
 - Keep all your responses short and simple. Use official language, but be kind and welcoming.
-- This is a voice conversation, so keep your responses short, like in a real conversation. Don't ramble for too long.`
-      }
-    ]
-  }
+- This is a voice conversation, so keep your responses short, like in a real conversation. Don't ramble for too long.`,
+      },
+    ],
+  },
 };
 
 // // zod schema still valid in JS (optional usage)

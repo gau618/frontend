@@ -1,0 +1,281 @@
+// Design System Variables
+:root {
+  --color-primary: #2563eb;
+  --color-primary-dark: #1d4ed8;
+  --color-secondary: #64748b;
+  --color-accent: #06b6d4;
+  --color-success: #059669;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #475569;
+  --color-text-muted: #64748b;
+  --color-background: #ffffff;
+  --color-background-subtle: #f8fafc;
+  --color-border: #e2e8f0;
+  --color-border-light: #f1f5f9;
+  
+  --font-family-primary: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 0.75rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  
+  --border-radius-sm: 0.375rem;
+  --border-radius-md: 0.5rem;
+  --border-radius-lg: 0.75rem;
+  
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  
+  --transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-medium: 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+// Compact Interview Card
+.interview-card {
+  background: var(--color-background);
+  border: 1px solid var(--color-border-light);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-medium);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-family: var(--font-family-primary);
+  min-height: 280px;
+  width: 100%; // Ensure full width within grid cell
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+    transform: scaleX(0);
+    transition: transform var(--transition-medium);
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-border);
+
+    &::before {
+      transform: scaleX(1);
+    }
+
+    .start-btn {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-accent));
+      color: white;
+    }
+  }
+}
+
+// Compact Header
+.card-header {
+  padding: var(--spacing-md) var(--spacing-md) var(--spacing-sm);
+
+  .header-main {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+  }
+
+  .card-title {
+    font-size: 1.1rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--color-text-primary);
+    margin: 0;
+    line-height: 1.3;
+    flex: 1;
+  }
+}
+
+// Compact Badge
+.interview-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem var(--spacing-sm);
+  border-radius: 50px;
+  font-size: 0.75rem;
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+
+  .badge-text {
+    position: relative;
+    z-index: 1;
+  }
+
+  &.badge--technical {
+    background: rgba(59, 130, 246, 0.1);
+    color: #1e40af;
+    border: 1px solid rgba(59, 130, 246, 0.2);
+  }
+
+  &.badge--behavioral {
+    background: rgba(34, 197, 94, 0.1);
+    color: #166534;
+    border: 1px solid rgba(34, 197, 94, 0.2);
+  }
+
+  &.badge--hr {
+    background: rgba(168, 85, 247, 0.1);
+    color: #7c2d12;
+    border: 1px solid rgba(168, 85, 247, 0.2);
+  }
+
+  &.badge--system {
+    background: rgba(249, 115, 22, 0.1);
+    color: #c2410c;
+    border: 1px solid rgba(249, 115, 22, 0.2);
+  }
+
+  &.badge--default {
+    background: rgba(100, 116, 139, 0.1);
+    color: #475569;
+    border: 1px solid rgba(100, 116, 139, 0.2);
+  }
+}
+
+// Compact Body
+.card-body {
+  padding: 0 var(--spacing-md) var(--spacing-sm);
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+// Compact Stats Row
+.stats-row {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm);
+  background: var(--color-background-subtle);
+  border-radius: var(--border-radius-md);
+  border: 1px solid var(--color-border-light);
+
+  .stat {
+    text-align: center;
+    flex: 1;
+
+    .stat-label {
+      display: block;
+      font-size: 0.7rem;
+      color: var(--color-text-muted);
+      font-weight: var(--font-weight-medium);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin-bottom: 0.25rem;
+    }
+
+    .stat-value {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: var(--font-weight-semibold);
+      color: var(--color-text-primary);
+    }
+  }
+}
+
+// Compact Tech Section
+.tech-section {
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.375rem;
+  }
+
+  .tech-tag {
+    padding: 0.25rem var(--spacing-xs);
+    background: var(--color-background-subtle);
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-light);
+    border-radius: var(--border-radius-sm);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-medium);
+    transition: var(--transition-fast);
+
+    &:hover {
+      color: var(--color-primary);
+      border-color: var(--color-primary);
+    }
+  }
+
+  .tech-more {
+    padding: 0.25rem var(--spacing-xs);
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--border-radius-sm);
+    font-size: 0.75rem;
+    font-weight: var(--font-weight-medium);
+  }
+}
+
+// Compact Footer
+.card-footer {
+  padding: var(--spacing-sm) var(--spacing-md) var(--spacing-md);
+  margin-top: auto;
+}
+
+.start-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-xs);
+  padding: var(--spacing-sm) var(--spacing-md);
+  background: var(--color-background-subtle);
+  color: var(--color-text-primary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-md);
+  font-size: 0.9rem;
+  font-weight: var(--font-weight-semibold);
+  font-family: inherit;
+  cursor: pointer;
+  transition: all var(--transition-medium);
+
+  svg {
+    width: 16px;
+    height: 16px;
+    transition: transform var(--transition-fast);
+  }
+
+  &:hover {
+    border-color: var(--color-primary);
+
+    svg {
+      transform: translateX(2px);
+    }
+  }
+
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// Animation
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.interview-card {
+  animation: slideInUp 0.4s ease-out both;
+}

@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
+import { apiFetch } from "./constants/api";
 
 const ApiButton = () => {
   const [data, setData] = useState(null);
@@ -7,12 +8,12 @@ const ApiButton = () => {
 
   // Hard-coded form data
   const formData = {
-    type: 'Behavioral',
-    role: 'Software Engineer',
-    level: 'Senior',
-    techstack: 'JavaScript, Node.js, React',
+    type: "Behavioral",
+    role: "Software Engineer",
+    level: "Senior",
+    techstack: "JavaScript, Node.js, React",
     amount: 5,
-    userid: 'user123'
+    userid: "user123",
   };
 
   const callApi = async () => {
@@ -20,16 +21,16 @@ const ApiButton = () => {
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:8000/api/v1/vapi/interview-list')
+      const response = await apiFetch(`/api/v1/vapi/interview-list`);
       const result = await response.json();
 
       if (response.ok) {
         setData(result);
       } else {
-        setError(result.message || 'Failed to fetch data');
+        setError(result.message || "Failed to fetch data");
       }
     } catch (error) {
-      setError('Failed to fetch data');
+      setError("Failed to fetch data");
     } finally {
       setLoading(false);
     }
@@ -38,9 +39,9 @@ const ApiButton = () => {
   return (
     <div>
       <button onClick={callApi} disabled={loading}>
-        {loading ? 'Loading...' : 'Generate Interview Questions'}
+        {loading ? "Loading..." : "Generate Interview Questions"}
       </button>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
+      {error && <p style={{ color: "red" }}>{error}</p>}
       {loading && <p>Loading...</p>}
       {data && (
         <div>
